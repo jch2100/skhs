@@ -27,16 +27,16 @@
 <body>
 <header class="hero"><div class="wrap">
   <div class="eyebrow">SK HOME & SERVICE · GEMINI ENTERPRISE AX</div>
-  <h1>푸시 전 체크리스트<br>+ 하위 에이전트 설정 프롬프트</h1>
-  <p>GitHub Pages에서 열어 보면서 확인하고, Gemini Enterprise Agent Designer에 프롬프트를 그대로 붙여넣어 주 에이전트와 하위 에이전트 2개를 구성하는 실습 페이지야.</p>
-  <div class="hero-actions"><a class="button" href="#prompts">프롬프트로 이동</a><a class="button secondary" href="#push">GitHub 푸시 점검</a></div>
+  <h1>교육 전 현장 환경 점검<br>+ 에이전트 미리 만들기</h1>
+  <p>강사가 학습자 계정으로 먼저 로그인해서, 주 에이전트 1개와 하위 에이전트 2개를 각각 만들고 연결한 뒤 실제로 실행되는지 확인하는 현장용 페이지야.</p>
+  <div class="hero-actions"><a class="button" href="#workflow">구성 순서 보기</a><a class="button secondary" href="#prompts">프롬프트로 이동</a></div>
 </div></header>
 
 <main class="wrap">
-  <div class="notice warning"><strong>먼저 보안 확인:</strong> GitHub Pages는 공개 웹페이지야. 실제 고객사 문서, 실측 PDF, 원본 화면 캡처, 계정 정보, 사내 URL은 이 페이지와 저장소에 넣지 않아. 아래 실습 테스트는 가상 자료만 사용해.</div>
+  <div class="notice warning"><strong>이 페이지의 용도:</strong> 교육 당일에 학습자와 같은 계정 환경에서 강사가 먼저 만들어보고 확인하는 사전 점검표야. 실제 고객사 보고서나 계정 정보를 넣지 말고, 아래 가상 테스트로 기능만 확인해.</div>
 
   <section class="section" id="overview">
-    <div class="section-head"><div><h2>오늘의 완료 기준</h2><p class="lead">세 가지를 실제로 끝내면 교육 전 환경 확인이 완료된 것으로 볼 수 있어.</p></div><div class="progress-box"><span id="progressText">0 / 0 완료</span><div class="progress"><span id="progressBar"></span></div></div></div>
+    <div class="section-head"><div><h2>오늘의 완료 기준</h2><p class="lead">아래 네 가지를 직접 끝내면 교육 전 환경 확인이 완료된 것으로 볼 수 있어.</p></div><div class="progress-box"><span id="progressText">0 / 0 완료</span><div class="progress"><span id="progressBar"></span></div></div></div>
     <div class="grid">
       <article class="card"><span class="tag">1 · 계정 환경</span><h3>학습자 계정에서 같은 화면이 보이는가</h3><ul class="checklist">
         <li><input type="checkbox"><span>학습자 계정으로 로그인하고 개인 Google 계정으로 전환하지 않았다.</span></li>
@@ -48,17 +48,22 @@
         <li><input type="checkbox"><span>하위 에이전트 2개를 추가하고 연결했다.</span></li>
         <li><input type="checkbox"><span>실제 테스트 질문에서 하위 에이전트 결과가 반영됐다.</span></li>
       </ul></article>
-      <article class="card full"><span class="tag orange">3 · 공개 전 정리</span><h3>GitHub 저장소에는 공개 가능한 파일만 들어가는가</h3><ul class="checklist">
-        <li><input type="checkbox"><span>실측 PDF와 고객사 화면 캡처를 제외했다.</span></li>
-        <li><input type="checkbox"><span>다른 교안 폴더의 변경사항이 staged 상태가 아니다.</span></li>
-        <li><input type="checkbox"><span><code class="inline">git diff --cached</code>를 직접 확인했다.</span></li>
+      <article class="card"><span class="tag orange">3 · 하위 에이전트</span><h3>하위 에이전트 2개를 각각 만들었는가</h3><ul class="checklist">
+        <li><input type="checkbox"><span>문서 요약 담당 하위 에이전트를 만들고 이름을 확인했다.</span></li>
+        <li><input type="checkbox"><span>반대 검토 담당 하위 에이전트를 만들고 이름을 확인했다.</span></li>
+        <li><input type="checkbox"><span>두 하위 에이전트가 서로 다른 역할을 갖는다.</span></li>
+      </ul></article>
+      <article class="card"><span class="tag green">4 · 연결·실행</span><h3>주 에이전트에서 실제로 호출되는가</h3><ul class="checklist">
+        <li><input type="checkbox"><span>주 에이전트 플로우에 하위 에이전트 노드 2개를 연결했다.</span></li>
+        <li><input type="checkbox"><span>하위 에이전트 결과가 주 에이전트 답변에 반영됐다.</span></li>
+        <li><input type="checkbox"><span>저장 후 새 대화에서도 에이전트를 다시 불러왔다.</span></li>
       </ul></article>
     </div>
   </section>
 
-  <section class="section" id="prompts"><div class="section-head"><div><h2>Gemini Enterprise 입력 프롬프트</h2><p class="lead">Agent Designer에서 하나씩 복사해서 붙여넣어. 실제 회사 자료 대신 테스트용 자료를 사용해.</p></div></div>
+  <section class="section" id="prompts"><div class="section-head"><div><h2>Gemini Enterprise 입력 프롬프트</h2><p class="lead">아래 순서대로 하나씩 복사해서 붙여넣어. 먼저 주 에이전트를 만들고, 하위 에이전트 2개를 각각 만든 다음, 마지막에 주 에이전트에 연결해.</p></div></div>
     <div class="grid">
-      <article class="card full"><span class="tag">A · 주 에이전트</span><h3>1. 주 에이전트 초안 생성</h3><p class="small">Agent Designer 시작 화면의 입력창에 붙여넣기</p>
+      <article class="card full"><span class="tag">A · 주 에이전트 만들기</span><h3>1. 주 에이전트 초안 생성</h3><p class="small">Agent Designer 시작 화면의 설명 입력창에 붙여넣기. 이 에이전트가 최종 답변을 만드는 총괄 역할을 맡아.</p>
         <div class="prompt"><div class="prompt-head"><span>Executive Decision Support · 주 에이전트</span><button class="copy" data-copy="main-agent">복사</button></div><pre id="main-agent">임원의 의사결정을 돕는 판단 참모 총괄 에이전트를 만들어줘.
 
 목표:
@@ -89,7 +94,7 @@
 ⑥ 다음 행동 3가지</pre></div>
       </article>
 
-      <article class="card"><span class="tag green">B · 하위 에이전트 1</span><h3>2. 문서 요약 담당 추가</h3><p class="small">첫 번째 하위 에이전트에 입력</p>
+      <article class="card"><span class="tag green">B · 하위 에이전트 1개 만들기</span><h3>2. 문서 요약 담당 생성</h3><p class="small">주 에이전트와 별도로 첫 번째 하위 에이전트를 만들 때 입력. 이름을 <strong>Document Briefing Agent</strong>로 저장해.</p>
         <div class="prompt"><div class="prompt-head"><span>Document Briefing Agent</span><button class="copy" data-copy="sub-agent-summary">복사</button></div><pre id="sub-agent-summary">너는 문서 요약 담당 하위 에이전트야.
 
 역할:
@@ -112,7 +117,7 @@
 - 원문 위치가 확인되면 페이지 또는 문단 표시</pre></div>
       </article>
 
-      <article class="card"><span class="tag orange">C · 하위 에이전트 2</span><h3>3. 반대 검토 담당 추가</h3><p class="small">두 번째 하위 에이전트에 입력</p>
+      <article class="card"><span class="tag orange">C · 하위 에이전트 2개 만들기</span><h3>3. 반대 검토 담당 생성</h3><p class="small">두 번째 하위 에이전트를 별도로 만들 때 입력. 이름을 <strong>Risk and Devil's Advocate Agent</strong>로 저장해.</p>
         <div class="prompt"><div class="prompt-head"><span>Risk and Devil's Advocate Agent</span><button class="copy" data-copy="sub-agent-risk">복사</button></div><pre id="sub-agent-risk">너는 의사결정 반대 검토와 리스크 분석을 담당하는 하위 에이전트야.
 
 역할:
@@ -136,7 +141,7 @@
 - 실행 전에 할 최소 검증</pre></div>
       </article>
 
-      <article class="card full"><span class="tag">D · 주 에이전트 연결</span><h3>4. 하위 에이전트 역할과 실행 순서 지정</h3><p class="small">하위 에이전트 2개를 만든 뒤 주 에이전트 변경 요청 창에 입력</p>
+      <article class="card full"><span class="tag">D · 주 에이전트에 연결하기</span><h3>4. 하위 에이전트 역할과 실행 순서 지정</h3><p class="small">하위 에이전트 2개를 각각 저장한 뒤, 다시 주 에이전트를 열어 변경 요청 창에 입력. 이 단계에서 두 에이전트의 호출 순서를 지정해.</p>
         <div class="prompt"><div class="prompt-head"><span>Sub-agent orchestration · 연결 요청</span><button class="copy" data-copy="orchestration">복사</button></div><pre id="orchestration">이 에이전트에 연결된 두 하위 에이전트를 다음처럼 사용하도록 구성해줘.
 
 1. Document Briefing Agent:
@@ -158,24 +163,32 @@
 
 하위 에이전트가 실제로 실행되지 않았으면 실행된 것처럼 쓰지 말고 '하위 에이전트 실행 여부 확인 필요'라고 표시해줘.</pre></div>
       </article>
+      <article class="card full"><div class="expect"><strong>핵심 구분:</strong> 주 에이전트 프롬프트에 하위 에이전트 역할을 글로 적는 것만으로는 연결이 끝난 게 아니야. 화면의 플로우에 하위 에이전트 노드가 실제로 생기고, 주 에이전트에서 그 노드가 호출되는지까지 확인해야 해.</div></article>
     </div>
   </section>
 
-  <section class="section" id="build"><div class="section-head"><div><h2>Agent Designer 구성 순서</h2><p class="lead">화면에 노드가 보이는 것과 실제로 실행되는 것은 다르니, 마지막 테스트까지 진행해.</p></div></div>
-    <div class="card"><ol class="steps">
-      <li>Agent Designer에서 <strong>새 에이전트</strong>를 선택한다.</li>
-      <li>주 에이전트 생성 프롬프트를 붙여넣고 초안을 생성한다.</li>
-      <li>미리보기에서 가상 테스트 질문을 입력해 응답을 확인한다.</li>
-      <li>플로우 화면에서 <strong>+</strong> 버튼으로 하위 에이전트 노드를 2개 추가한다.</li>
-      <li>첫 번째 노드에 문서 요약 프롬프트를, 두 번째 노드에 반대 검토 프롬프트를 입력한다.</li>
-      <li>주 에이전트와 두 하위 에이전트의 연결선을 확인한다.</li>
-      <li>주 에이전트 변경 요청 창에 연결 요청 프롬프트를 붙여넣는다.</li>
-      <li>미리보기에서 가상 테스트를 실행하고 두 하위 에이전트 결과가 실제 반영되는지 확인한다.</li>
-      <li>생성 후 에이전트 갤러리에 저장하고 새로고침한다.</li>
-    </ol><div class="expect"><strong>통과 기준:</strong> 노드와 연결선이 보이는 것만으로 통과 처리하지 않아. 실제 답변에 문서 요약 결과와 반대 검토 결과가 각각 드러나야 해.</div></div>
+  <section class="section" id="workflow"><div class="section-head"><div><h2>실제 구성 순서: 3개를 따로 만들고 마지막에 연결</h2><p class="lead">처음에는 ‘주 에이전트 1개 + 일하는 하위 에이전트 2개’로 생각하면 돼. 주 에이전트는 총괄자이고, 하위 에이전트는 각각 한 가지 일만 담당해.</p></div></div>
+    <div class="grid">
+      <article class="card"><span class="tag">주 에이전트</span><h3>최종 답변을 만드는 총괄자</h3><p class="small">사용자의 질문을 받고 하위 에이전트에게 일을 나눈 뒤, 결과를 하나의 판단 참고 보고서로 합쳐.</p></article>
+      <article class="card"><span class="tag green">하위 1</span><h3>문서 요약 담당</h3><p class="small">보고서나 회의록에서 사실, 숫자, 결정 사항, 미결 사항을 뽑아내. 판단이나 추측은 하지 않아.</p></article>
+      <article class="card"><span class="tag orange">하위 2</span><h3>반대 검토 담당</h3><p class="small">제안의 전제와 실패 가능성을 반대 입장에서 검토해. 문서 요약 결과를 받은 뒤에 일하도록 연결해.</p></article>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>강사가 화면에서 실제로 할 일</h3><ol class="steps">
+      <li>회사에서 제공한 학습자용 계정으로 로그인한다. 개인 Google 계정으로 전환하지 말고, 교육장에서 학습자가 보게 될 메뉴와 같은지 먼저 확인한다.</li>
+      <li><strong>새 에이전트</strong> 또는 <strong>Agent Designer</strong>를 열고, 첫 번째 입력창에 <strong>A · 주 에이전트 만들기</strong> 프롬프트를 붙여넣는다.</li>
+      <li>초안이 생성되면 에이전트 이름을 확인하고, 미리보기에서 짧은 가상 질문을 한 번 입력한다. 이때는 주 에이전트가 기본 답변을 할 수 있으면 돼.</li>
+      <li>주 에이전트 화면의 플로우 또는 구성 화면에서 <strong>+</strong>를 눌러 첫 번째 하위 에이전트 노드를 만든다. 주 에이전트의 프롬프트 끝에 역할을 덧붙이는 방식으로 끝내지 않아.</li>
+      <li>첫 번째 하위 에이전트 노드의 이름을 <strong>Document Briefing Agent</strong>로 정하고, <strong>B · 하위 에이전트 1개 만들기</strong> 프롬프트를 그 노드의 역할·설명 입력칸에 붙여넣는다. 저장 또는 적용한다.</li>
+      <li>같은 <strong>+</strong> 버튼으로 두 번째 하위 에이전트 노드를 만든다. 이름을 <strong>Risk and Devil's Advocate Agent</strong>로 정하고, <strong>C · 하위 에이전트 2개 만들기</strong> 프롬프트를 두 번째 노드에 붙여넣는다.</li>
+      <li>플로우에서 주 에이전트와 하위 에이전트 2개가 각각 연결되어 있는지 확인한다. 노드가 화면에만 있고 연결선이 없으면 아직 연결된 것이 아니다.</li>
+      <li>다시 주 에이전트의 변경 요청 또는 구성 지시 입력창을 열고, <strong>D · 주 에이전트에 연결하기</strong> 프롬프트를 붙여넣는다. 이 프롬프트는 ‘요약 → 반대 검토 → 최종 통합’ 순서를 지정하는 단계야.</li>
+      <li>미리보기에서 <strong>실행 검증용 테스트 프롬프트</strong>를 입력한다. 답변에 문서 요약 결과와 반대 검토 결과가 따로 드러나는지 확인한다.</li>
+      <li>실행 결과에 하위 에이전트 이름이나 반환 결과가 표시되지 않으면, 연결이 실제 실행된 것으로 판단하지 않는다. 구조만 확인된 경우에는 현장 기록에 <strong>하위 에이전트 실행 미검증</strong>이라고 남긴다.</li>
+      <li>주 에이전트와 하위 에이전트를 저장한 뒤 새로고침하거나 새 대화를 열어 다시 호출한다. 이름과 연결된 하위 에이전트 2개가 유지되는지 확인한다.</li>
+    </ol><div class="expect"><strong>최종 통과 기준:</strong> ① 주 에이전트가 저장됨 ② 하위 에이전트 2개가 각각 저장됨 ③ 플로우에 두 노드가 연결됨 ④ 가상 테스트에서 두 역할의 결과가 실제 답변에 반영됨. ④가 안 되면 교육에서 ‘실제 체인 실행’으로 소개하지 않아.</div></div>
   </section>
 
-  <section class="section" id="tests"><div class="section-head"><div><h2>실행 검증용 테스트 프롬프트</h2><p class="lead">아래 테스트는 가상의 사업 검토 상황이야. 실제 SK홈앤서비스 자료를 넣지 않아.</p></div></div>
+  <section class="section" id="tests"><div class="section-head"><div><h2>실행 검증용 테스트 프롬프트</h2><p class="lead">이 프롬프트는 하위 에이전트 노드가 연결된 주 에이전트의 미리보기 입력창에 넣어. 실제 SK홈앤서비스 자료 대신 가상 상황으로 실행 여부만 확인해.</p></div></div>
     <div class="grid">
       <article class="card full"><span class="tag green">가상 테스트 1</span><h3>하위 에이전트 체인 실행</h3>
         <div class="prompt"><div class="prompt-head"><span>의사결정 검토 테스트 입력</span><button class="copy" data-copy="test-chain">복사</button></div><pre id="test-chain">다음은 교육용 가상 상황이야.
@@ -203,50 +216,16 @@
     </div>
   </section>
 
-  <section class="section" id="push"><div class="section-head"><div><h2>GitHub 푸시 전 체크리스트</h2><p class="lead">현재 로컬 폴더는 상위 교안 Git 작업 트리 안에 있으므로, 빈 GitHub 저장소를 별도 폴더에 clone하는 방법을 권장해.</p></div></div>
-    <div class="grid">
-      <article class="card full"><span class="tag orange">1 · 공개 범위</span><ul class="checklist">
-        <li><input type="checkbox"><span>저장소를 Public으로 둘지 Private으로 둘지 결정했다.</span></li>
-        <li><input type="checkbox"><span>실측 PDF, 원본 캡처, 실제 계정·URL·고객사 문서를 제외했다.</span></li>
-        <li><input type="checkbox"><span>이 HTML 안에 내부 정보나 비밀번호가 없음을 확인했다.</span></li>
-      </ul></article>
-      <article class="card"><span class="tag">2 · 안전한 준비</span><div class="prompt"><div class="prompt-head"><span>빈 저장소 clone</span><button class="copy" data-copy="clone">복사</button></div><pre id="clone">$stageRoot = "C:\\Users\\user\\Desktop\\skhs-public"
-git clone https://github.com/jch2100/skhs.git $stageRoot
-Set-Location $stageRoot
-git branch -M main</pre></div></article>
-      <article class="card"><span class="tag">3 · 파일 확인</span><div class="prompt"><div class="prompt-head"><span>staged 파일 검사</span><button class="copy" data-copy="stage-check">복사</button></div><pre id="stage-check">git add -n index.html
-git add index.html
-git status --short
-git diff --cached --name-only
-git diff --cached --stat
-git diff --cached --check</pre></div></article>
-      <article class="card full"><span class="tag green">4 · 민감정보 검색</span><div class="prompt"><div class="prompt-head"><span>PowerShell 검색</span><button class="copy" data-copy="secret-scan">복사</button></div><pre id="secret-scan">rg -n -i --hidden -g '!*.png' -g '!*.jpg' -g '!*.jpeg' -g '!*.pdf' 'api[_-]?key|token|secret|password|authorization|bearer|private[_-]?key|BEGIN .*PRIVATE KEY|client_secret' .</pre></div><div class="avoid"><strong>발견 시 중지:</strong> 계정 이메일, 비밀번호, 내부 URL, 고객사 문서, 실제 회의록, 원본 스크린샷이 나오면 공개 저장소에 푸시하지 않아.</div></article>
-      <article class="card"><span class="tag">5 · 커밋</span><div class="prompt"><div class="prompt-head"><span>명시적 파일만 추가</span><button class="copy" data-copy="commit">복사</button></div><pre id="commit">git add index.html
-git diff --cached --name-only
-git diff --cached
-git commit -m "Add Gemini Enterprise AX checklist"
-git push -u origin main</pre></div></article>
-      <article class="card"><span class="tag green">6 · Pages 공개</span><ol class="steps">
-        <li>GitHub 저장소의 <strong>Settings</strong>로 이동한다.</li>
-        <li><strong>Pages</strong>를 연다.</li>
-        <li>Source에서 <strong>Deploy from a branch</strong>를 선택한다.</li>
-        <li>Branch는 <strong>main</strong>, Folder는 <strong>/(root)</strong>를 선택한다.</li>
-        <li>Save 후 배포가 끝날 때까지 기다린다.</li>
-      </ol></article>
-    </div>
-    <div class="notice" style="margin-top:16px;margin-bottom:0">예상 주소: <a href="https://jch2100.github.io/skhs/" target="_blank" rel="noopener">https://jch2100.github.io/skhs/</a><br>GitHub Pages 설정 참고: <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" target="_blank" rel="noopener">GitHub Docs · publishing source 설정</a></div>
-  </section>
-
-  <section class="section"><div class="card"><span class="tag orange">교육 중 사용하지 않을 예제</span><ul class="checklist">
+  <section class="section"><div class="card"><span class="tag orange">이번 사전 점검에서 제외할 기능</span><ul class="checklist">
     <li><input type="checkbox"><span>메일·캘린더·사내 시스템 자동 연동</span></li>
     <li><input type="checkbox"><span>OneDrive·SharePoint 파일 연결</span></li>
     <li><input type="checkbox"><span>ZIP 파일 업로드</span></li>
     <li><input type="checkbox"><span>실제 회사 DRM 문서 업로드</span></li>
     <li><input type="checkbox"><span>실제 고객사 보고서로 테스트</span></li>
-  </ul><p class="small">메뉴가 보이는 것과 실제 실행되는 것은 다르므로, 위 기능은 고객사 관리자 확인 전까지 교육 예제에서 제외해.</p></div></section>
+  </ul><p class="small">메뉴가 보이는 것과 실제 실행되는 것은 다르므로, 위 기능은 고객사 관리자 확인 전까지 교육 예제에서 제외해. 오늘은 에이전트 생성·하위 에이전트 연결·가상 테스트에 집중해.</p></div></section>
 </main>
 
-<footer class="wrap">SK홈앤서비스 임원 Gemini Enterprise AX · 정적 HTML 체크리스트 · 체크 상태는 이 브라우저에만 저장돼.</footer>
+<footer class="wrap">SK홈앤서비스 임원 Gemini Enterprise AX · 강사 사전 환경 점검 · 체크 상태는 이 브라우저에만 저장돼.</footer>
 <button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
 <script>
 (function(){
